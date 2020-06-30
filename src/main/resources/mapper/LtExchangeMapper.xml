@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtExchangeMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtExchange">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="usn" jdbcType="VARCHAR" property="usn" />
+    <result column="soure_asset" jdbcType="INTEGER" property="soureAsset" />
+    <result column="target_asset" jdbcType="INTEGER" property="targetAsset" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="times" jdbcType="BIGINT" property="times" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_no, `uid`, usn, soure_asset, target_asset, amount, price, fee, times
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_exchange
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_exchange
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LtExchange" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into lt_exchange (order_no, `uid`, usn, 
+      soure_asset, target_asset, amount, 
+      price, fee, times)
+    values (#{orderNo,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, #{usn,jdbcType=VARCHAR}, 
+      #{soureAsset,jdbcType=INTEGER}, #{targetAsset,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, 
+      #{price,jdbcType=DECIMAL}, #{fee,jdbcType=DECIMAL}, #{times,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LtExchange" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into lt_exchange
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="usn != null">
+        usn,
+      </if>
+      <if test="soureAsset != null">
+        soure_asset,
+      </if>
+      <if test="targetAsset != null">
+        target_asset,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="fee != null">
+        fee,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="usn != null">
+        #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="soureAsset != null">
+        #{soureAsset,jdbcType=INTEGER},
+      </if>
+      <if test="targetAsset != null">
+        #{targetAsset,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtExchange">
+    <!--@mbg.generated-->
+    update lt_exchange
+    <set>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="usn != null">
+        usn = #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="soureAsset != null">
+        soure_asset = #{soureAsset,jdbcType=INTEGER},
+      </if>
+      <if test="targetAsset != null">
+        target_asset = #{targetAsset,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null">
+        fee = #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtExchange">
+    <!--@mbg.generated-->
+    update lt_exchange
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      `uid` = #{uid,jdbcType=INTEGER},
+      usn = #{usn,jdbcType=VARCHAR},
+      soure_asset = #{soureAsset,jdbcType=INTEGER},
+      target_asset = #{targetAsset,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      fee = #{fee,jdbcType=DECIMAL},
+      times = #{times,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

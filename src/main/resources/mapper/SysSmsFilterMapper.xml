@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysSmsFilterMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysSmsFilter">
+    <!--@mbg.generated-->
+    <id column="FId" jdbcType="VARCHAR" property="fid" />
+    <result column="MobileCode" jdbcType="VARCHAR" property="mobilecode" />
+    <result column="FMobile" jdbcType="VARCHAR" property="fmobile" />
+    <result column="FCreateTime" jdbcType="TIMESTAMP" property="fcreatetime" />
+    <result column="TemplateCode" jdbcType="VARCHAR" property="templatecode" />
+    <result column="FContent" jdbcType="VARCHAR" property="fcontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    FId, MobileCode, FMobile, FCreateTime, TemplateCode, FContent
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysSmsFilter
+    where FId = #{fid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysSmsFilter
+    where FId = #{fid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysSmsFilter">
+    <!--@mbg.generated-->
+    insert into SysSmsFilter (FId, MobileCode, FMobile, 
+      FCreateTime, TemplateCode, FContent
+      )
+    values (#{fid,jdbcType=VARCHAR}, #{mobilecode,jdbcType=VARCHAR}, #{fmobile,jdbcType=VARCHAR}, 
+      #{fcreatetime,jdbcType=TIMESTAMP}, #{templatecode,jdbcType=VARCHAR}, #{fcontent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysSmsFilter">
+    <!--@mbg.generated-->
+    insert into SysSmsFilter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        FId,
+      </if>
+      <if test="mobilecode != null">
+        MobileCode,
+      </if>
+      <if test="fmobile != null">
+        FMobile,
+      </if>
+      <if test="fcreatetime != null">
+        FCreateTime,
+      </if>
+      <if test="templatecode != null">
+        TemplateCode,
+      </if>
+      <if test="fcontent != null">
+        FContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilecode != null">
+        #{mobilecode,jdbcType=VARCHAR},
+      </if>
+      <if test="fmobile != null">
+        #{fmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="fcreatetime != null">
+        #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="templatecode != null">
+        #{templatecode,jdbcType=VARCHAR},
+      </if>
+      <if test="fcontent != null">
+        #{fcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysSmsFilter">
+    <!--@mbg.generated-->
+    update SysSmsFilter
+    <set>
+      <if test="mobilecode != null">
+        MobileCode = #{mobilecode,jdbcType=VARCHAR},
+      </if>
+      <if test="fmobile != null">
+        FMobile = #{fmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="fcreatetime != null">
+        FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="templatecode != null">
+        TemplateCode = #{templatecode,jdbcType=VARCHAR},
+      </if>
+      <if test="fcontent != null">
+        FContent = #{fcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FId = #{fid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysSmsFilter">
+    <!--@mbg.generated-->
+    update SysSmsFilter
+    set MobileCode = #{mobilecode,jdbcType=VARCHAR},
+      FMobile = #{fmobile,jdbcType=VARCHAR},
+      FCreateTime = #{fcreatetime,jdbcType=TIMESTAMP},
+      TemplateCode = #{templatecode,jdbcType=VARCHAR},
+      FContent = #{fcontent,jdbcType=VARCHAR}
+    where FId = #{fid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LeProductMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LeProduct">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="guid" jdbcType="VARCHAR" property="guid" />
+    <result column="l_type" jdbcType="INTEGER" property="lType" />
+    <result column="l_name" jdbcType="VARCHAR" property="lName" />
+    <result column="cn_name" jdbcType="VARCHAR" property="cnName" />
+    <result column="p_asset_id" jdbcType="INTEGER" property="pAssetId" />
+    <result column="p_coin_id" jdbcType="INTEGER" property="pCoinId" />
+    <result column="pledge" jdbcType="VARCHAR" property="pledge" />
+    <result column="loan_asset" jdbcType="VARCHAR" property="loanAsset" />
+    <result column="pledge_ratio" jdbcType="DECIMAL" property="pledgeRatio" />
+    <result column="c_ratio" jdbcType="DECIMAL" property="cRatio" />
+    <result column="expire" jdbcType="INTEGER" property="expire" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, guid, l_type, l_name, cn_name, p_asset_id, p_coin_id, pledge, loan_asset, pledge_ratio, 
+    c_ratio, expire, del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from le_product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from le_product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LeProduct" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into le_product (guid, l_type, l_name, 
+      cn_name, p_asset_id, p_coin_id, 
+      pledge, loan_asset, pledge_ratio, 
+      c_ratio, expire, del
+      )
+    values (#{guid,jdbcType=VARCHAR}, #{lType,jdbcType=INTEGER}, #{lName,jdbcType=VARCHAR}, 
+      #{cnName,jdbcType=VARCHAR}, #{pAssetId,jdbcType=INTEGER}, #{pCoinId,jdbcType=INTEGER}, 
+      #{pledge,jdbcType=VARCHAR}, #{loanAsset,jdbcType=VARCHAR}, #{pledgeRatio,jdbcType=DECIMAL}, 
+      #{cRatio,jdbcType=DECIMAL}, #{expire,jdbcType=INTEGER}, #{del,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LeProduct" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into le_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        guid,
+      </if>
+      <if test="lType != null">
+        l_type,
+      </if>
+      <if test="lName != null">
+        l_name,
+      </if>
+      <if test="cnName != null">
+        cn_name,
+      </if>
+      <if test="pAssetId != null">
+        p_asset_id,
+      </if>
+      <if test="pCoinId != null">
+        p_coin_id,
+      </if>
+      <if test="pledge != null">
+        pledge,
+      </if>
+      <if test="loanAsset != null">
+        loan_asset,
+      </if>
+      <if test="pledgeRatio != null">
+        pledge_ratio,
+      </if>
+      <if test="cRatio != null">
+        c_ratio,
+      </if>
+      <if test="expire != null">
+        expire,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="lType != null">
+        #{lType,jdbcType=INTEGER},
+      </if>
+      <if test="lName != null">
+        #{lName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="pAssetId != null">
+        #{pAssetId,jdbcType=INTEGER},
+      </if>
+      <if test="pCoinId != null">
+        #{pCoinId,jdbcType=INTEGER},
+      </if>
+      <if test="pledge != null">
+        #{pledge,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAsset != null">
+        #{loanAsset,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgeRatio != null">
+        #{pledgeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="cRatio != null">
+        #{cRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="expire != null">
+        #{expire,jdbcType=INTEGER},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LeProduct">
+    <!--@mbg.generated-->
+    update le_product
+    <set>
+      <if test="guid != null">
+        guid = #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="lType != null">
+        l_type = #{lType,jdbcType=INTEGER},
+      </if>
+      <if test="lName != null">
+        l_name = #{lName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        cn_name = #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="pAssetId != null">
+        p_asset_id = #{pAssetId,jdbcType=INTEGER},
+      </if>
+      <if test="pCoinId != null">
+        p_coin_id = #{pCoinId,jdbcType=INTEGER},
+      </if>
+      <if test="pledge != null">
+        pledge = #{pledge,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAsset != null">
+        loan_asset = #{loanAsset,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgeRatio != null">
+        pledge_ratio = #{pledgeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="cRatio != null">
+        c_ratio = #{cRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="expire != null">
+        expire = #{expire,jdbcType=INTEGER},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LeProduct">
+    <!--@mbg.generated-->
+    update le_product
+    set guid = #{guid,jdbcType=VARCHAR},
+      l_type = #{lType,jdbcType=INTEGER},
+      l_name = #{lName,jdbcType=VARCHAR},
+      cn_name = #{cnName,jdbcType=VARCHAR},
+      p_asset_id = #{pAssetId,jdbcType=INTEGER},
+      p_coin_id = #{pCoinId,jdbcType=INTEGER},
+      pledge = #{pledge,jdbcType=VARCHAR},
+      loan_asset = #{loanAsset,jdbcType=VARCHAR},
+      pledge_ratio = #{pledgeRatio,jdbcType=DECIMAL},
+      c_ratio = #{cRatio,jdbcType=DECIMAL},
+      expire = #{expire,jdbcType=INTEGER},
+      del = #{del,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

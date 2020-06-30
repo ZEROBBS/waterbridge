@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysAboutMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysAbout">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="FName" jdbcType="VARCHAR" property="fname" />
+    <result column="FValue" jdbcType="VARCHAR" property="fvalue" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, FName, FValue
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysAbout
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysAbout
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysAbout">
+    <!--@mbg.generated-->
+    insert into SysAbout (Id, FName, FValue
+      )
+    values (#{id,jdbcType=VARCHAR}, #{fname,jdbcType=VARCHAR}, #{fvalue,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysAbout">
+    <!--@mbg.generated-->
+    insert into SysAbout
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="fname != null">
+        FName,
+      </if>
+      <if test="fvalue != null">
+        FValue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="fname != null">
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fvalue != null">
+        #{fvalue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysAbout">
+    <!--@mbg.generated-->
+    update SysAbout
+    <set>
+      <if test="fname != null">
+        FName = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fvalue != null">
+        FValue = #{fvalue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysAbout">
+    <!--@mbg.generated-->
+    update SysAbout
+    set FName = #{fname,jdbcType=VARCHAR},
+      FValue = #{fvalue,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

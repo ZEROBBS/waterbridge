@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.DAppExtendMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.DAppExtend">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="DId" jdbcType="INTEGER" property="did" />
+    <result column="DType" jdbcType="INTEGER" property="dtype" />
+    <result column="AppType" jdbcType="INTEGER" property="apptype" />
+    <result column="PacketName" jdbcType="VARCHAR" property="packetname" />
+    <result column="MarketUrl" jdbcType="VARCHAR" property="marketurl" />
+    <result column="PageUrl" jdbcType="VARCHAR" property="pageurl" />
+    <result column="ActivityName" jdbcType="VARCHAR" property="activityname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, DId, DType, AppType, PacketName, MarketUrl, PageUrl, ActivityName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from DAppExtend
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from DAppExtend
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.DAppExtend" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into DAppExtend (DId, DType, AppType, 
+      PacketName, MarketUrl, PageUrl, 
+      ActivityName)
+    values (#{did,jdbcType=INTEGER}, #{dtype,jdbcType=INTEGER}, #{apptype,jdbcType=INTEGER}, 
+      #{packetname,jdbcType=VARCHAR}, #{marketurl,jdbcType=VARCHAR}, #{pageurl,jdbcType=VARCHAR}, 
+      #{activityname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.DAppExtend" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into DAppExtend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        DId,
+      </if>
+      <if test="dtype != null">
+        DType,
+      </if>
+      <if test="apptype != null">
+        AppType,
+      </if>
+      <if test="packetname != null">
+        PacketName,
+      </if>
+      <if test="marketurl != null">
+        MarketUrl,
+      </if>
+      <if test="pageurl != null">
+        PageUrl,
+      </if>
+      <if test="activityname != null">
+        ActivityName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="dtype != null">
+        #{dtype,jdbcType=INTEGER},
+      </if>
+      <if test="apptype != null">
+        #{apptype,jdbcType=INTEGER},
+      </if>
+      <if test="packetname != null">
+        #{packetname,jdbcType=VARCHAR},
+      </if>
+      <if test="marketurl != null">
+        #{marketurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pageurl != null">
+        #{pageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="activityname != null">
+        #{activityname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.DAppExtend">
+    <!--@mbg.generated-->
+    update DAppExtend
+    <set>
+      <if test="did != null">
+        DId = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="dtype != null">
+        DType = #{dtype,jdbcType=INTEGER},
+      </if>
+      <if test="apptype != null">
+        AppType = #{apptype,jdbcType=INTEGER},
+      </if>
+      <if test="packetname != null">
+        PacketName = #{packetname,jdbcType=VARCHAR},
+      </if>
+      <if test="marketurl != null">
+        MarketUrl = #{marketurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pageurl != null">
+        PageUrl = #{pageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="activityname != null">
+        ActivityName = #{activityname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.DAppExtend">
+    <!--@mbg.generated-->
+    update DAppExtend
+    set DId = #{did,jdbcType=INTEGER},
+      DType = #{dtype,jdbcType=INTEGER},
+      AppType = #{apptype,jdbcType=INTEGER},
+      PacketName = #{packetname,jdbcType=VARCHAR},
+      MarketUrl = #{marketurl,jdbcType=VARCHAR},
+      PageUrl = #{pageurl,jdbcType=VARCHAR},
+      ActivityName = #{activityname,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

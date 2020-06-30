@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.UserThirdInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.UserThirdInfo">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="UserSn" jdbcType="VARCHAR" property="usersn" />
+    <result column="NickName" jdbcType="VARCHAR" property="nickname" />
+    <result column="HeadUrl" jdbcType="VARCHAR" property="headurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, UserSn, NickName, HeadUrl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from UserThirdInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from UserThirdInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.UserThirdInfo">
+    <!--@mbg.generated-->
+    insert into UserThirdInfo (Id, UserSn, NickName, 
+      HeadUrl)
+    values (#{id,jdbcType=VARCHAR}, #{usersn,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{headurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.UserThirdInfo">
+    <!--@mbg.generated-->
+    insert into UserThirdInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="usersn != null">
+        UserSn,
+      </if>
+      <if test="nickname != null">
+        NickName,
+      </if>
+      <if test="headurl != null">
+        HeadUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usersn != null">
+        #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headurl != null">
+        #{headurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.UserThirdInfo">
+    <!--@mbg.generated-->
+    update UserThirdInfo
+    <set>
+      <if test="usersn != null">
+        UserSn = #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        NickName = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headurl != null">
+        HeadUrl = #{headurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.UserThirdInfo">
+    <!--@mbg.generated-->
+    update UserThirdInfo
+    set UserSn = #{usersn,jdbcType=VARCHAR},
+      NickName = #{nickname,jdbcType=VARCHAR},
+      HeadUrl = #{headurl,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtCurrencyMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtCurrency">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+    <result column="cn_name" jdbcType="VARCHAR" property="cnName" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="symbol" jdbcType="VARCHAR" property="symbol" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, c_name, cn_name, code, symbol, icon, del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_currency
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_currency
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.LtCurrency">
+    <!--@mbg.generated-->
+    insert into lt_currency (id, c_name, cn_name, 
+      code, symbol, icon, 
+      del)
+    values (#{id,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR}, #{cnName,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{symbol,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{del,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.LtCurrency">
+    <!--@mbg.generated-->
+    insert into lt_currency
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cName != null">
+        c_name,
+      </if>
+      <if test="cnName != null">
+        cn_name,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="symbol != null">
+        symbol,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="symbol != null">
+        #{symbol,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtCurrency">
+    <!--@mbg.generated-->
+    update lt_currency
+    <set>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        cn_name = #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="symbol != null">
+        symbol = #{symbol,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtCurrency">
+    <!--@mbg.generated-->
+    update lt_currency
+    set c_name = #{cName,jdbcType=VARCHAR},
+      cn_name = #{cnName,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      symbol = #{symbol,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      del = #{del,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

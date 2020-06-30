@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysNoticeMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysNotice">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="CnTitle" jdbcType="VARCHAR" property="cntitle" />
+    <result column="EnTitle" jdbcType="VARCHAR" property="entitle" />
+    <result column="CnContext" jdbcType="VARCHAR" property="cncontext" />
+    <result column="EnContext" jdbcType="VARCHAR" property="encontext" />
+    <result column="ImgUrl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, CnTitle, EnTitle, CnContext, EnContext, ImgUrl, CreateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysNotice
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysNotice
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysNotice">
+    <!--@mbg.generated-->
+    insert into SysNotice (Id, CnTitle, EnTitle, 
+      CnContext, EnContext, ImgUrl, 
+      CreateTime)
+    values (#{id,jdbcType=VARCHAR}, #{cntitle,jdbcType=VARCHAR}, #{entitle,jdbcType=VARCHAR}, 
+      #{cncontext,jdbcType=VARCHAR}, #{encontext,jdbcType=VARCHAR}, #{imgurl,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysNotice">
+    <!--@mbg.generated-->
+    insert into SysNotice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="cntitle != null">
+        CnTitle,
+      </if>
+      <if test="entitle != null">
+        EnTitle,
+      </if>
+      <if test="cncontext != null">
+        CnContext,
+      </if>
+      <if test="encontext != null">
+        EnContext,
+      </if>
+      <if test="imgurl != null">
+        ImgUrl,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cntitle != null">
+        #{cntitle,jdbcType=VARCHAR},
+      </if>
+      <if test="entitle != null">
+        #{entitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cncontext != null">
+        #{cncontext,jdbcType=VARCHAR},
+      </if>
+      <if test="encontext != null">
+        #{encontext,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysNotice">
+    <!--@mbg.generated-->
+    update SysNotice
+    <set>
+      <if test="cntitle != null">
+        CnTitle = #{cntitle,jdbcType=VARCHAR},
+      </if>
+      <if test="entitle != null">
+        EnTitle = #{entitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cncontext != null">
+        CnContext = #{cncontext,jdbcType=VARCHAR},
+      </if>
+      <if test="encontext != null">
+        EnContext = #{encontext,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        ImgUrl = #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysNotice">
+    <!--@mbg.generated-->
+    update SysNotice
+    set CnTitle = #{cntitle,jdbcType=VARCHAR},
+      EnTitle = #{entitle,jdbcType=VARCHAR},
+      CnContext = #{cncontext,jdbcType=VARCHAR},
+      EnContext = #{encontext,jdbcType=VARCHAR},
+      ImgUrl = #{imgurl,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

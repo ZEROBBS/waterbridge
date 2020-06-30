@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtDappMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtDapp">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="cn_name" jdbcType="VARCHAR" property="cnName" />
+    <result column="en_name" jdbcType="VARCHAR" property="enName" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="category" jdbcType="INTEGER" property="category" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="a_consume" jdbcType="DECIMAL" property="aConsume" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="t_flag" jdbcType="INTEGER" property="tFlag" />
+    <result column="consume_min" jdbcType="DECIMAL" property="consumeMin" />
+    <result column="notify_url" jdbcType="VARCHAR" property="notifyUrl" />
+    <result column="ratio" jdbcType="DECIMAL" property="ratio" />
+    <result column="value" jdbcType="DECIMAL" property="value" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+    <result column="times" jdbcType="BIGINT" property="times" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="show" jdbcType="INTEGER" property="show" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, sn, cn_name, en_name, `label`, address, category, icon, a_consume, `status`, 
+    t_flag, consume_min, notify_url, ratio, `value`, del, times, sort, `show`, `source`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_dapp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_dapp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LtDapp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into lt_dapp (sn, cn_name, en_name, 
+      `label`, address, category, 
+      icon, a_consume, `status`, 
+      t_flag, consume_min, notify_url, 
+      ratio, `value`, del, 
+      times, sort, `show`, `source`
+      )
+    values (#{sn,jdbcType=VARCHAR}, #{cnName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{label,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{category,jdbcType=INTEGER}, 
+      #{icon,jdbcType=VARCHAR}, #{aConsume,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
+      #{tFlag,jdbcType=INTEGER}, #{consumeMin,jdbcType=DECIMAL}, #{notifyUrl,jdbcType=VARCHAR}, 
+      #{ratio,jdbcType=DECIMAL}, #{value,jdbcType=DECIMAL}, #{del,jdbcType=INTEGER}, 
+      #{times,jdbcType=BIGINT}, #{sort,jdbcType=INTEGER}, #{show,jdbcType=INTEGER}, #{source,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LtDapp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into lt_dapp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sn != null">
+        sn,
+      </if>
+      <if test="cnName != null">
+        cn_name,
+      </if>
+      <if test="enName != null">
+        en_name,
+      </if>
+      <if test="label != null">
+        `label`,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="aConsume != null">
+        a_consume,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="tFlag != null">
+        t_flag,
+      </if>
+      <if test="consumeMin != null">
+        consume_min,
+      </if>
+      <if test="notifyUrl != null">
+        notify_url,
+      </if>
+      <if test="ratio != null">
+        ratio,
+      </if>
+      <if test="value != null">
+        `value`,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="show != null">
+        `show`,
+      </if>
+      <if test="source != null">
+        `source`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sn != null">
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="aConsume != null">
+        #{aConsume,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="tFlag != null">
+        #{tFlag,jdbcType=INTEGER},
+      </if>
+      <if test="consumeMin != null">
+        #{consumeMin,jdbcType=DECIMAL},
+      </if>
+      <if test="notifyUrl != null">
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="ratio != null">
+        #{ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=DECIMAL},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=BIGINT},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="show != null">
+        #{show,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtDapp">
+    <!--@mbg.generated-->
+    update lt_dapp
+    <set>
+      <if test="sn != null">
+        sn = #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="cnName != null">
+        cn_name = #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        en_name = #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        `label` = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="aConsume != null">
+        a_consume = #{aConsume,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="tFlag != null">
+        t_flag = #{tFlag,jdbcType=INTEGER},
+      </if>
+      <if test="consumeMin != null">
+        consume_min = #{consumeMin,jdbcType=DECIMAL},
+      </if>
+      <if test="notifyUrl != null">
+        notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="ratio != null">
+        ratio = #{ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="value != null">
+        `value` = #{value,jdbcType=DECIMAL},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=BIGINT},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="show != null">
+        `show` = #{show,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        `source` = #{source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtDapp">
+    <!--@mbg.generated-->
+    update lt_dapp
+    set sn = #{sn,jdbcType=VARCHAR},
+      cn_name = #{cnName,jdbcType=VARCHAR},
+      en_name = #{enName,jdbcType=VARCHAR},
+      `label` = #{label,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      category = #{category,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      a_consume = #{aConsume,jdbcType=DECIMAL},
+      `status` = #{status,jdbcType=INTEGER},
+      t_flag = #{tFlag,jdbcType=INTEGER},
+      consume_min = #{consumeMin,jdbcType=DECIMAL},
+      notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      ratio = #{ratio,jdbcType=DECIMAL},
+      `value` = #{value,jdbcType=DECIMAL},
+      del = #{del,jdbcType=INTEGER},
+      times = #{times,jdbcType=BIGINT},
+      sort = #{sort,jdbcType=INTEGER},
+      `show` = #{show,jdbcType=INTEGER},
+      `source` = #{source,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

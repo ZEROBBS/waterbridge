@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.UserAuthMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.UserAuth">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="UserSn" jdbcType="VARCHAR" property="usersn" />
+    <result column="IdCardCode" jdbcType="VARCHAR" property="idcardcode" />
+    <result column="RealName" jdbcType="VARCHAR" property="realname" />
+    <result column="IdCardImg1" jdbcType="VARCHAR" property="idcardimg1" />
+    <result column="IdCardImg2" jdbcType="VARCHAR" property="idcardimg2" />
+    <result column="IdCardImg3" jdbcType="VARCHAR" property="idcardimg3" />
+    <result column="Country" jdbcType="VARCHAR" property="country" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="Checked" jdbcType="INTEGER" property="checked" />
+    <result column="CardType" jdbcType="SMALLINT" property="cardtype" />
+    <result column="AuthMsg" jdbcType="VARCHAR" property="authmsg" />
+    <result column="CheckUser" jdbcType="VARCHAR" property="checkuser" />
+    <result column="CheckTime" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="AuthCode" jdbcType="VARCHAR" property="authcode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, UserSn, IdCardCode, RealName, IdCardImg1, IdCardImg2, IdCardImg3, Country, CreateTime, 
+    `Checked`, CardType, AuthMsg, CheckUser, CheckTime, AuthCode
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from UserAuth
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from UserAuth
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.UserAuth">
+    <!--@mbg.generated-->
+    insert into UserAuth (Id, UserSn, IdCardCode, 
+      RealName, IdCardImg1, IdCardImg2, 
+      IdCardImg3, Country, CreateTime, 
+      `Checked`, CardType, AuthMsg, 
+      CheckUser, CheckTime, AuthCode
+      )
+    values (#{id,jdbcType=VARCHAR}, #{usersn,jdbcType=VARCHAR}, #{idcardcode,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{idcardimg1,jdbcType=VARCHAR}, #{idcardimg2,jdbcType=VARCHAR}, 
+      #{idcardimg3,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{checked,jdbcType=INTEGER}, #{cardtype,jdbcType=SMALLINT}, #{authmsg,jdbcType=VARCHAR}, 
+      #{checkuser,jdbcType=VARCHAR}, #{checktime,jdbcType=TIMESTAMP}, #{authcode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.UserAuth">
+    <!--@mbg.generated-->
+    insert into UserAuth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="usersn != null">
+        UserSn,
+      </if>
+      <if test="idcardcode != null">
+        IdCardCode,
+      </if>
+      <if test="realname != null">
+        RealName,
+      </if>
+      <if test="idcardimg1 != null">
+        IdCardImg1,
+      </if>
+      <if test="idcardimg2 != null">
+        IdCardImg2,
+      </if>
+      <if test="idcardimg3 != null">
+        IdCardImg3,
+      </if>
+      <if test="country != null">
+        Country,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="checked != null">
+        `Checked`,
+      </if>
+      <if test="cardtype != null">
+        CardType,
+      </if>
+      <if test="authmsg != null">
+        AuthMsg,
+      </if>
+      <if test="checkuser != null">
+        CheckUser,
+      </if>
+      <if test="checktime != null">
+        CheckTime,
+      </if>
+      <if test="authcode != null">
+        AuthCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usersn != null">
+        #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardcode != null">
+        #{idcardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardimg1 != null">
+        #{idcardimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardimg2 != null">
+        #{idcardimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardimg3 != null">
+        #{idcardimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checked != null">
+        #{checked,jdbcType=INTEGER},
+      </if>
+      <if test="cardtype != null">
+        #{cardtype,jdbcType=SMALLINT},
+      </if>
+      <if test="authmsg != null">
+        #{authmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authcode != null">
+        #{authcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.UserAuth">
+    <!--@mbg.generated-->
+    update UserAuth
+    <set>
+      <if test="usersn != null">
+        UserSn = #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardcode != null">
+        IdCardCode = #{idcardcode,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        RealName = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardimg1 != null">
+        IdCardImg1 = #{idcardimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardimg2 != null">
+        IdCardImg2 = #{idcardimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardimg3 != null">
+        IdCardImg3 = #{idcardimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        Country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checked != null">
+        `Checked` = #{checked,jdbcType=INTEGER},
+      </if>
+      <if test="cardtype != null">
+        CardType = #{cardtype,jdbcType=SMALLINT},
+      </if>
+      <if test="authmsg != null">
+        AuthMsg = #{authmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        CheckUser = #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        CheckTime = #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authcode != null">
+        AuthCode = #{authcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.UserAuth">
+    <!--@mbg.generated-->
+    update UserAuth
+    set UserSn = #{usersn,jdbcType=VARCHAR},
+      IdCardCode = #{idcardcode,jdbcType=VARCHAR},
+      RealName = #{realname,jdbcType=VARCHAR},
+      IdCardImg1 = #{idcardimg1,jdbcType=VARCHAR},
+      IdCardImg2 = #{idcardimg2,jdbcType=VARCHAR},
+      IdCardImg3 = #{idcardimg3,jdbcType=VARCHAR},
+      Country = #{country,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      `Checked` = #{checked,jdbcType=INTEGER},
+      CardType = #{cardtype,jdbcType=SMALLINT},
+      AuthMsg = #{authmsg,jdbcType=VARCHAR},
+      CheckUser = #{checkuser,jdbcType=VARCHAR},
+      CheckTime = #{checktime,jdbcType=TIMESTAMP},
+      AuthCode = #{authcode,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

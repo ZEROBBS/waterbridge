@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysAccountMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysAccount">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="Account" jdbcType="VARCHAR" property="account" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="DataStatus" jdbcType="INTEGER" property="datastatus" />
+    <result column="UserSecret" jdbcType="VARCHAR" property="usersecret" />
+    <result column="RealName" jdbcType="VARCHAR" property="realname" />
+    <result column="LoginTime" jdbcType="TIMESTAMP" property="logintime" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="IsAdmin" jdbcType="INTEGER" property="isadmin" />
+    <result column="CreateId" jdbcType="VARCHAR" property="createid" />
+    <result column="RoleId" jdbcType="VARCHAR" property="roleid" />
+    <result column="RoleName" jdbcType="VARCHAR" property="rolename" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, Account, `Password`, DataStatus, UserSecret, RealName, LoginTime, CreateTime, 
+    IsAdmin, CreateId, RoleId, RoleName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysAccount
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysAccount
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysAccount">
+    <!--@mbg.generated-->
+    insert into SysAccount (Id, Account, `Password`, 
+      DataStatus, UserSecret, RealName, 
+      LoginTime, CreateTime, IsAdmin, 
+      CreateId, RoleId, RoleName
+      )
+    values (#{id,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{datastatus,jdbcType=INTEGER}, #{usersecret,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
+      #{logintime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, #{isadmin,jdbcType=INTEGER}, 
+      #{createid,jdbcType=VARCHAR}, #{roleid,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysAccount">
+    <!--@mbg.generated-->
+    insert into SysAccount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="account != null">
+        Account,
+      </if>
+      <if test="password != null">
+        `Password`,
+      </if>
+      <if test="datastatus != null">
+        DataStatus,
+      </if>
+      <if test="usersecret != null">
+        UserSecret,
+      </if>
+      <if test="realname != null">
+        RealName,
+      </if>
+      <if test="logintime != null">
+        LoginTime,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="isadmin != null">
+        IsAdmin,
+      </if>
+      <if test="createid != null">
+        CreateId,
+      </if>
+      <if test="roleid != null">
+        RoleId,
+      </if>
+      <if test="rolename != null">
+        RoleName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="datastatus != null">
+        #{datastatus,jdbcType=INTEGER},
+      </if>
+      <if test="usersecret != null">
+        #{usersecret,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null">
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isadmin != null">
+        #{isadmin,jdbcType=INTEGER},
+      </if>
+      <if test="createid != null">
+        #{createid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null">
+        #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null">
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysAccount">
+    <!--@mbg.generated-->
+    update SysAccount
+    <set>
+      <if test="account != null">
+        Account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `Password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="datastatus != null">
+        DataStatus = #{datastatus,jdbcType=INTEGER},
+      </if>
+      <if test="usersecret != null">
+        UserSecret = #{usersecret,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        RealName = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null">
+        LoginTime = #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isadmin != null">
+        IsAdmin = #{isadmin,jdbcType=INTEGER},
+      </if>
+      <if test="createid != null">
+        CreateId = #{createid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null">
+        RoleId = #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null">
+        RoleName = #{rolename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysAccount">
+    <!--@mbg.generated-->
+    update SysAccount
+    set Account = #{account,jdbcType=VARCHAR},
+      `Password` = #{password,jdbcType=VARCHAR},
+      DataStatus = #{datastatus,jdbcType=INTEGER},
+      UserSecret = #{usersecret,jdbcType=VARCHAR},
+      RealName = #{realname,jdbcType=VARCHAR},
+      LoginTime = #{logintime,jdbcType=TIMESTAMP},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      IsAdmin = #{isadmin,jdbcType=INTEGER},
+      CreateId = #{createid,jdbcType=VARCHAR},
+      RoleId = #{roleid,jdbcType=VARCHAR},
+      RoleName = #{rolename,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

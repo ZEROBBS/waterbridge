@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtUserextendMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtUserextend">
+    <!--@mbg.generated-->
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="usn" jdbcType="VARCHAR" property="usn" />
+    <result column="parent" jdbcType="INTEGER" property="parent" />
+    <result column="week_award" jdbcType="DECIMAL" property="weekAward" />
+    <result column="total_award" jdbcType="DECIMAL" property="totalAward" />
+    <result column="total_award_usd" jdbcType="DECIMAL" property="totalAwardUsd" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="total_limit" jdbcType="DECIMAL" property="totalLimit" />
+    <result column="total_power" jdbcType="DECIMAL" property="totalPower" />
+    <result column="total_contribu" jdbcType="DECIMAL" property="totalContribu" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `uid`, usn, parent, week_award, total_award, total_award_usd, total_consume, total_limit, 
+    total_power, total_contribu
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_userextend
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_userextend
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.LtUserextend">
+    <!--@mbg.generated-->
+    insert into lt_userextend (`uid`, usn, parent, 
+      week_award, total_award, total_award_usd, 
+      total_consume, total_limit, total_power, 
+      total_contribu)
+    values (#{uid,jdbcType=INTEGER}, #{usn,jdbcType=VARCHAR}, #{parent,jdbcType=INTEGER}, 
+      #{weekAward,jdbcType=DECIMAL}, #{totalAward,jdbcType=DECIMAL}, #{totalAwardUsd,jdbcType=DECIMAL}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{totalLimit,jdbcType=DECIMAL}, #{totalPower,jdbcType=DECIMAL}, 
+      #{totalContribu,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.LtUserextend">
+    <!--@mbg.generated-->
+    insert into lt_userextend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="usn != null">
+        usn,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+      <if test="weekAward != null">
+        week_award,
+      </if>
+      <if test="totalAward != null">
+        total_award,
+      </if>
+      <if test="totalAwardUsd != null">
+        total_award_usd,
+      </if>
+      <if test="totalConsume != null">
+        total_consume,
+      </if>
+      <if test="totalLimit != null">
+        total_limit,
+      </if>
+      <if test="totalPower != null">
+        total_power,
+      </if>
+      <if test="totalContribu != null">
+        total_contribu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="usn != null">
+        #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=INTEGER},
+      </if>
+      <if test="weekAward != null">
+        #{weekAward,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAward != null">
+        #{totalAward,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAwardUsd != null">
+        #{totalAwardUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="totalConsume != null">
+        #{totalConsume,jdbcType=DECIMAL},
+      </if>
+      <if test="totalLimit != null">
+        #{totalLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPower != null">
+        #{totalPower,jdbcType=DECIMAL},
+      </if>
+      <if test="totalContribu != null">
+        #{totalContribu,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtUserextend">
+    <!--@mbg.generated-->
+    update lt_userextend
+    <set>
+      <if test="usn != null">
+        usn = #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=INTEGER},
+      </if>
+      <if test="weekAward != null">
+        week_award = #{weekAward,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAward != null">
+        total_award = #{totalAward,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAwardUsd != null">
+        total_award_usd = #{totalAwardUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="totalConsume != null">
+        total_consume = #{totalConsume,jdbcType=DECIMAL},
+      </if>
+      <if test="totalLimit != null">
+        total_limit = #{totalLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPower != null">
+        total_power = #{totalPower,jdbcType=DECIMAL},
+      </if>
+      <if test="totalContribu != null">
+        total_contribu = #{totalContribu,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtUserextend">
+    <!--@mbg.generated-->
+    update lt_userextend
+    set usn = #{usn,jdbcType=VARCHAR},
+      parent = #{parent,jdbcType=INTEGER},
+      week_award = #{weekAward,jdbcType=DECIMAL},
+      total_award = #{totalAward,jdbcType=DECIMAL},
+      total_award_usd = #{totalAwardUsd,jdbcType=DECIMAL},
+      total_consume = #{totalConsume,jdbcType=DECIMAL},
+      total_limit = #{totalLimit,jdbcType=DECIMAL},
+      total_power = #{totalPower,jdbcType=DECIMAL},
+      total_contribu = #{totalContribu,jdbcType=DECIMAL}
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

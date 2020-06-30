@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.UserBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.UserBaseInfo">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="UserSn" jdbcType="VARCHAR" property="usersn" />
+    <result column="UserBalance" jdbcType="DECIMAL" property="userbalance" />
+    <result column="UserConsume" jdbcType="DECIMAL" property="userconsume" />
+    <result column="DAppSn" jdbcType="VARCHAR" property="dappsn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, UserSn, UserBalance, UserConsume, DAppSn
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from UserBaseInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from UserBaseInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.UserBaseInfo">
+    <!--@mbg.generated-->
+    insert into UserBaseInfo (Id, UserSn, UserBalance, 
+      UserConsume, DAppSn)
+    values (#{id,jdbcType=VARCHAR}, #{usersn,jdbcType=VARCHAR}, #{userbalance,jdbcType=DECIMAL}, 
+      #{userconsume,jdbcType=DECIMAL}, #{dappsn,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.UserBaseInfo">
+    <!--@mbg.generated-->
+    insert into UserBaseInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="usersn != null">
+        UserSn,
+      </if>
+      <if test="userbalance != null">
+        UserBalance,
+      </if>
+      <if test="userconsume != null">
+        UserConsume,
+      </if>
+      <if test="dappsn != null">
+        DAppSn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usersn != null">
+        #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="userbalance != null">
+        #{userbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="userconsume != null">
+        #{userconsume,jdbcType=DECIMAL},
+      </if>
+      <if test="dappsn != null">
+        #{dappsn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.UserBaseInfo">
+    <!--@mbg.generated-->
+    update UserBaseInfo
+    <set>
+      <if test="usersn != null">
+        UserSn = #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="userbalance != null">
+        UserBalance = #{userbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="userconsume != null">
+        UserConsume = #{userconsume,jdbcType=DECIMAL},
+      </if>
+      <if test="dappsn != null">
+        DAppSn = #{dappsn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.UserBaseInfo">
+    <!--@mbg.generated-->
+    update UserBaseInfo
+    set UserSn = #{usersn,jdbcType=VARCHAR},
+      UserBalance = #{userbalance,jdbcType=DECIMAL},
+      UserConsume = #{userconsume,jdbcType=DECIMAL},
+      DAppSn = #{dappsn,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

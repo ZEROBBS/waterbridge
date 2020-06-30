@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.OrderPayInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.OrderPayInfo">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="UserSn" jdbcType="VARCHAR" property="usersn" />
+    <result column="OrderSn" jdbcType="VARCHAR" property="ordersn" />
+    <result column="DAppSn" jdbcType="VARCHAR" property="dappsn" />
+    <result column="TotalAmount" jdbcType="DECIMAL" property="totalamount" />
+    <result column="TotalAmountUsd" jdbcType="DECIMAL" property="totalamountusd" />
+    <result column="RefundAmount" jdbcType="DECIMAL" property="refundamount" />
+    <result column="RefundAmountUsd" jdbcType="DECIMAL" property="refundamountusd" />
+    <result column="Rate" jdbcType="DECIMAL" property="rate" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="Currency" jdbcType="VARCHAR" property="currency" />
+    <result column="PayState" jdbcType="VARCHAR" property="paystate" />
+    <result column="OrderState" jdbcType="VARCHAR" property="orderstate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, UserSn, OrderSn, DAppSn, TotalAmount, TotalAmountUsd, RefundAmount, RefundAmountUsd, 
+    Rate, CreateTime, Currency, PayState, OrderState
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from OrderPayInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from OrderPayInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.OrderPayInfo">
+    <!--@mbg.generated-->
+    insert into OrderPayInfo (Id, UserSn, OrderSn, 
+      DAppSn, TotalAmount, TotalAmountUsd, 
+      RefundAmount, RefundAmountUsd, Rate, 
+      CreateTime, Currency, PayState, 
+      OrderState)
+    values (#{id,jdbcType=VARCHAR}, #{usersn,jdbcType=VARCHAR}, #{ordersn,jdbcType=VARCHAR}, 
+      #{dappsn,jdbcType=VARCHAR}, #{totalamount,jdbcType=DECIMAL}, #{totalamountusd,jdbcType=DECIMAL}, 
+      #{refundamount,jdbcType=DECIMAL}, #{refundamountusd,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{currency,jdbcType=VARCHAR}, #{paystate,jdbcType=VARCHAR}, 
+      #{orderstate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.OrderPayInfo">
+    <!--@mbg.generated-->
+    insert into OrderPayInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="usersn != null">
+        UserSn,
+      </if>
+      <if test="ordersn != null">
+        OrderSn,
+      </if>
+      <if test="dappsn != null">
+        DAppSn,
+      </if>
+      <if test="totalamount != null">
+        TotalAmount,
+      </if>
+      <if test="totalamountusd != null">
+        TotalAmountUsd,
+      </if>
+      <if test="refundamount != null">
+        RefundAmount,
+      </if>
+      <if test="refundamountusd != null">
+        RefundAmountUsd,
+      </if>
+      <if test="rate != null">
+        Rate,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="currency != null">
+        Currency,
+      </if>
+      <if test="paystate != null">
+        PayState,
+      </if>
+      <if test="orderstate != null">
+        OrderState,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usersn != null">
+        #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersn != null">
+        #{ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="dappsn != null">
+        #{dappsn,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamount != null">
+        #{totalamount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalamountusd != null">
+        #{totalamountusd,jdbcType=DECIMAL},
+      </if>
+      <if test="refundamount != null">
+        #{refundamount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundamountusd != null">
+        #{refundamountusd,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="paystate != null">
+        #{paystate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.OrderPayInfo">
+    <!--@mbg.generated-->
+    update OrderPayInfo
+    <set>
+      <if test="usersn != null">
+        UserSn = #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersn != null">
+        OrderSn = #{ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="dappsn != null">
+        DAppSn = #{dappsn,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamount != null">
+        TotalAmount = #{totalamount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalamountusd != null">
+        TotalAmountUsd = #{totalamountusd,jdbcType=DECIMAL},
+      </if>
+      <if test="refundamount != null">
+        RefundAmount = #{refundamount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundamountusd != null">
+        RefundAmountUsd = #{refundamountusd,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        Rate = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null">
+        Currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="paystate != null">
+        PayState = #{paystate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null">
+        OrderState = #{orderstate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.OrderPayInfo">
+    <!--@mbg.generated-->
+    update OrderPayInfo
+    set UserSn = #{usersn,jdbcType=VARCHAR},
+      OrderSn = #{ordersn,jdbcType=VARCHAR},
+      DAppSn = #{dappsn,jdbcType=VARCHAR},
+      TotalAmount = #{totalamount,jdbcType=DECIMAL},
+      TotalAmountUsd = #{totalamountusd,jdbcType=DECIMAL},
+      RefundAmount = #{refundamount,jdbcType=DECIMAL},
+      RefundAmountUsd = #{refundamountusd,jdbcType=DECIMAL},
+      Rate = #{rate,jdbcType=DECIMAL},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      Currency = #{currency,jdbcType=VARCHAR},
+      PayState = #{paystate,jdbcType=VARCHAR},
+      OrderState = #{orderstate,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

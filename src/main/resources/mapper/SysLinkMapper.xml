@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysLinkMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysLink">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="FName" jdbcType="VARCHAR" property="fname" />
+    <result column="FValue" jdbcType="VARCHAR" property="fvalue" />
+    <result column="Language" jdbcType="VARCHAR" property="language" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, FName, FValue, `Language`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysLink
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysLink
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysLink">
+    <!--@mbg.generated-->
+    insert into SysLink (Id, FName, FValue, 
+      `Language`)
+    values (#{id,jdbcType=VARCHAR}, #{fname,jdbcType=VARCHAR}, #{fvalue,jdbcType=VARCHAR}, 
+      #{language,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysLink">
+    <!--@mbg.generated-->
+    insert into SysLink
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="fname != null">
+        FName,
+      </if>
+      <if test="fvalue != null">
+        FValue,
+      </if>
+      <if test="language != null">
+        `Language`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="fname != null">
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fvalue != null">
+        #{fvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysLink">
+    <!--@mbg.generated-->
+    update SysLink
+    <set>
+      <if test="fname != null">
+        FName = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fvalue != null">
+        FValue = #{fvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        `Language` = #{language,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysLink">
+    <!--@mbg.generated-->
+    update SysLink
+    set FName = #{fname,jdbcType=VARCHAR},
+      FValue = #{fvalue,jdbcType=VARCHAR},
+      `Language` = #{language,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

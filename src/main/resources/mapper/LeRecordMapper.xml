@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LeRecord">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="usn" jdbcType="VARCHAR" property="usn" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="pledge_value" jdbcType="DECIMAL" property="pledgeValue" />
+    <result column="l_amount" jdbcType="DECIMAL" property="lAmount" />
+    <result column="t_l_amount" jdbcType="DECIMAL" property="tLAmount" />
+    <result column="e_amount" jdbcType="DECIMAL" property="eAmount" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="c_price" jdbcType="DECIMAL" property="cPrice" />
+    <result column="l_price" jdbcType="DECIMAL" property="lPrice" />
+    <result column="pledge_ratio" jdbcType="DECIMAL" property="pledgeRatio" />
+    <result column="rdate" jdbcType="VARCHAR" property="rdate" />
+    <result column="close_c_price" jdbcType="DECIMAL" property="closeCPrice" />
+    <result column="close_l_price" jdbcType="DECIMAL" property="closeLPrice" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="h_time" jdbcType="BIGINT" property="hTime" />
+    <result column="times" jdbcType="BIGINT" property="times" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, sn, order_no, `uid`, usn, pid, amount, pledge_value, l_amount, t_l_amount, e_amount, 
+    fee, c_price, l_price, pledge_ratio, rdate, close_c_price, close_l_price, flag, h_time, 
+    times
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from le_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from le_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LeRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into le_record (sn, order_no, `uid`, 
+      usn, pid, amount, pledge_value, 
+      l_amount, t_l_amount, e_amount, 
+      fee, c_price, l_price, 
+      pledge_ratio, rdate, close_c_price, 
+      close_l_price, flag, h_time, 
+      times)
+    values (#{sn,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
+      #{usn,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, #{pledgeValue,jdbcType=DECIMAL}, 
+      #{lAmount,jdbcType=DECIMAL}, #{tLAmount,jdbcType=DECIMAL}, #{eAmount,jdbcType=DECIMAL}, 
+      #{fee,jdbcType=DECIMAL}, #{cPrice,jdbcType=DECIMAL}, #{lPrice,jdbcType=DECIMAL}, 
+      #{pledgeRatio,jdbcType=DECIMAL}, #{rdate,jdbcType=VARCHAR}, #{closeCPrice,jdbcType=DECIMAL}, 
+      #{closeLPrice,jdbcType=DECIMAL}, #{flag,jdbcType=INTEGER}, #{hTime,jdbcType=BIGINT}, 
+      #{times,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LeRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into le_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sn != null">
+        sn,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="usn != null">
+        usn,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="pledgeValue != null">
+        pledge_value,
+      </if>
+      <if test="lAmount != null">
+        l_amount,
+      </if>
+      <if test="tLAmount != null">
+        t_l_amount,
+      </if>
+      <if test="eAmount != null">
+        e_amount,
+      </if>
+      <if test="fee != null">
+        fee,
+      </if>
+      <if test="cPrice != null">
+        c_price,
+      </if>
+      <if test="lPrice != null">
+        l_price,
+      </if>
+      <if test="pledgeRatio != null">
+        pledge_ratio,
+      </if>
+      <if test="rdate != null">
+        rdate,
+      </if>
+      <if test="closeCPrice != null">
+        close_c_price,
+      </if>
+      <if test="closeLPrice != null">
+        close_l_price,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="hTime != null">
+        h_time,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sn != null">
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="usn != null">
+        #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="pledgeValue != null">
+        #{pledgeValue,jdbcType=DECIMAL},
+      </if>
+      <if test="lAmount != null">
+        #{lAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tLAmount != null">
+        #{tLAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="eAmount != null">
+        #{eAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="cPrice != null">
+        #{cPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lPrice != null">
+        #{lPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pledgeRatio != null">
+        #{pledgeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="rdate != null">
+        #{rdate,jdbcType=VARCHAR},
+      </if>
+      <if test="closeCPrice != null">
+        #{closeCPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="closeLPrice != null">
+        #{closeLPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="hTime != null">
+        #{hTime,jdbcType=BIGINT},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LeRecord">
+    <!--@mbg.generated-->
+    update le_record
+    <set>
+      <if test="sn != null">
+        sn = #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="usn != null">
+        usn = #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="pledgeValue != null">
+        pledge_value = #{pledgeValue,jdbcType=DECIMAL},
+      </if>
+      <if test="lAmount != null">
+        l_amount = #{lAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tLAmount != null">
+        t_l_amount = #{tLAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="eAmount != null">
+        e_amount = #{eAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null">
+        fee = #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="cPrice != null">
+        c_price = #{cPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lPrice != null">
+        l_price = #{lPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pledgeRatio != null">
+        pledge_ratio = #{pledgeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="rdate != null">
+        rdate = #{rdate,jdbcType=VARCHAR},
+      </if>
+      <if test="closeCPrice != null">
+        close_c_price = #{closeCPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="closeLPrice != null">
+        close_l_price = #{closeLPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="hTime != null">
+        h_time = #{hTime,jdbcType=BIGINT},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LeRecord">
+    <!--@mbg.generated-->
+    update le_record
+    set sn = #{sn,jdbcType=VARCHAR},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      `uid` = #{uid,jdbcType=INTEGER},
+      usn = #{usn,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DECIMAL},
+      pledge_value = #{pledgeValue,jdbcType=DECIMAL},
+      l_amount = #{lAmount,jdbcType=DECIMAL},
+      t_l_amount = #{tLAmount,jdbcType=DECIMAL},
+      e_amount = #{eAmount,jdbcType=DECIMAL},
+      fee = #{fee,jdbcType=DECIMAL},
+      c_price = #{cPrice,jdbcType=DECIMAL},
+      l_price = #{lPrice,jdbcType=DECIMAL},
+      pledge_ratio = #{pledgeRatio,jdbcType=DECIMAL},
+      rdate = #{rdate,jdbcType=VARCHAR},
+      close_c_price = #{closeCPrice,jdbcType=DECIMAL},
+      close_l_price = #{closeLPrice,jdbcType=DECIMAL},
+      flag = #{flag,jdbcType=INTEGER},
+      h_time = #{hTime,jdbcType=BIGINT},
+      times = #{times,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

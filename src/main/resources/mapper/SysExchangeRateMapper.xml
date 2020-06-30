@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysExchangeRateMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysExchangeRate">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Currency" jdbcType="VARCHAR" property="currency" />
+    <result column="ExchangeRate" jdbcType="DECIMAL" property="exchangerate" />
+    <result column="UpdateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="CurrencyMemo" jdbcType="VARCHAR" property="currencymemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, Currency, ExchangeRate, UpdateTime, CurrencyMemo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysExchangeRate
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from SysExchangeRate
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.SysExchangeRate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SysExchangeRate (Currency, ExchangeRate, UpdateTime, 
+      CurrencyMemo)
+    values (#{currency,jdbcType=VARCHAR}, #{exchangerate,jdbcType=DECIMAL}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{currencymemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.SysExchangeRate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SysExchangeRate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="currency != null">
+        Currency,
+      </if>
+      <if test="exchangerate != null">
+        ExchangeRate,
+      </if>
+      <if test="updatetime != null">
+        UpdateTime,
+      </if>
+      <if test="currencymemo != null">
+        CurrencyMemo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null">
+        #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currencymemo != null">
+        #{currencymemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysExchangeRate">
+    <!--@mbg.generated-->
+    update SysExchangeRate
+    <set>
+      <if test="currency != null">
+        Currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null">
+        ExchangeRate = #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetime != null">
+        UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currencymemo != null">
+        CurrencyMemo = #{currencymemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysExchangeRate">
+    <!--@mbg.generated-->
+    update SysExchangeRate
+    set Currency = #{currency,jdbcType=VARCHAR},
+      ExchangeRate = #{exchangerate,jdbcType=DECIMAL},
+      UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      CurrencyMemo = #{currencymemo,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

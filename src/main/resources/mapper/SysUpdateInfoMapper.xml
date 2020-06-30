@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysUpdateInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysUpdateInfo">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="AppName" jdbcType="VARCHAR" property="appname" />
+    <result column="PackageName" jdbcType="VARCHAR" property="packagename" />
+    <result column="VersionCode" jdbcType="INTEGER" property="versioncode" />
+    <result column="Version" jdbcType="VARCHAR" property="version" />
+    <result column="FileSize" jdbcType="BIGINT" property="filesize" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="NecessaryUpdate" jdbcType="INTEGER" property="necessaryupdate" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="PackageType" jdbcType="INTEGER" property="packagetype" />
+    <result column="DownUrl" jdbcType="VARCHAR" property="downurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, AppName, PackageName, VersionCode, Version, FileSize, Remark, NecessaryUpdate, 
+    CreateTime, PackageType, DownUrl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysUpdateInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysUpdateInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysUpdateInfo">
+    <!--@mbg.generated-->
+    insert into SysUpdateInfo (Id, AppName, PackageName, 
+      VersionCode, Version, FileSize, 
+      Remark, NecessaryUpdate, CreateTime, 
+      PackageType, DownUrl)
+    values (#{id,jdbcType=VARCHAR}, #{appname,jdbcType=VARCHAR}, #{packagename,jdbcType=VARCHAR}, 
+      #{versioncode,jdbcType=INTEGER}, #{version,jdbcType=VARCHAR}, #{filesize,jdbcType=BIGINT}, 
+      #{remark,jdbcType=VARCHAR}, #{necessaryupdate,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{packagetype,jdbcType=INTEGER}, #{downurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysUpdateInfo">
+    <!--@mbg.generated-->
+    insert into SysUpdateInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="appname != null">
+        AppName,
+      </if>
+      <if test="packagename != null">
+        PackageName,
+      </if>
+      <if test="versioncode != null">
+        VersionCode,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="filesize != null">
+        FileSize,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="necessaryupdate != null">
+        NecessaryUpdate,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+      <if test="packagetype != null">
+        PackageType,
+      </if>
+      <if test="downurl != null">
+        DownUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="packagename != null">
+        #{packagename,jdbcType=VARCHAR},
+      </if>
+      <if test="versioncode != null">
+        #{versioncode,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="filesize != null">
+        #{filesize,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="necessaryupdate != null">
+        #{necessaryupdate,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packagetype != null">
+        #{packagetype,jdbcType=INTEGER},
+      </if>
+      <if test="downurl != null">
+        #{downurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysUpdateInfo">
+    <!--@mbg.generated-->
+    update SysUpdateInfo
+    <set>
+      <if test="appname != null">
+        AppName = #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="packagename != null">
+        PackageName = #{packagename,jdbcType=VARCHAR},
+      </if>
+      <if test="versioncode != null">
+        VersionCode = #{versioncode,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="filesize != null">
+        FileSize = #{filesize,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="necessaryupdate != null">
+        NecessaryUpdate = #{necessaryupdate,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packagetype != null">
+        PackageType = #{packagetype,jdbcType=INTEGER},
+      </if>
+      <if test="downurl != null">
+        DownUrl = #{downurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysUpdateInfo">
+    <!--@mbg.generated-->
+    update SysUpdateInfo
+    set AppName = #{appname,jdbcType=VARCHAR},
+      PackageName = #{packagename,jdbcType=VARCHAR},
+      VersionCode = #{versioncode,jdbcType=INTEGER},
+      Version = #{version,jdbcType=VARCHAR},
+      FileSize = #{filesize,jdbcType=BIGINT},
+      Remark = #{remark,jdbcType=VARCHAR},
+      NecessaryUpdate = #{necessaryupdate,jdbcType=INTEGER},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      PackageType = #{packagetype,jdbcType=INTEGER},
+      DownUrl = #{downurl,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

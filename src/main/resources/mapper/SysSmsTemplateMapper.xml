@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysSmsTemplateMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysSmsTemplate">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="TemplateName" jdbcType="VARCHAR" property="templatename" />
+    <result column="SignName" jdbcType="VARCHAR" property="signname" />
+    <result column="Context" jdbcType="VARCHAR" property="context" />
+    <result column="TemplateCode" jdbcType="VARCHAR" property="templatecode" />
+    <result column="LimitCount" jdbcType="INTEGER" property="limitcount" />
+    <result column="LimitTime" jdbcType="INTEGER" property="limittime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, TemplateName, SignName, Context, TemplateCode, LimitCount, LimitTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysSmsTemplate
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysSmsTemplate
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysSmsTemplate">
+    <!--@mbg.generated-->
+    insert into SysSmsTemplate (Id, TemplateName, SignName, 
+      Context, TemplateCode, LimitCount, 
+      LimitTime)
+    values (#{id,jdbcType=VARCHAR}, #{templatename,jdbcType=VARCHAR}, #{signname,jdbcType=VARCHAR}, 
+      #{context,jdbcType=VARCHAR}, #{templatecode,jdbcType=VARCHAR}, #{limitcount,jdbcType=INTEGER}, 
+      #{limittime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysSmsTemplate">
+    <!--@mbg.generated-->
+    insert into SysSmsTemplate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="templatename != null">
+        TemplateName,
+      </if>
+      <if test="signname != null">
+        SignName,
+      </if>
+      <if test="context != null">
+        Context,
+      </if>
+      <if test="templatecode != null">
+        TemplateCode,
+      </if>
+      <if test="limitcount != null">
+        LimitCount,
+      </if>
+      <if test="limittime != null">
+        LimitTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="templatename != null">
+        #{templatename,jdbcType=VARCHAR},
+      </if>
+      <if test="signname != null">
+        #{signname,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null">
+        #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="templatecode != null">
+        #{templatecode,jdbcType=VARCHAR},
+      </if>
+      <if test="limitcount != null">
+        #{limitcount,jdbcType=INTEGER},
+      </if>
+      <if test="limittime != null">
+        #{limittime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysSmsTemplate">
+    <!--@mbg.generated-->
+    update SysSmsTemplate
+    <set>
+      <if test="templatename != null">
+        TemplateName = #{templatename,jdbcType=VARCHAR},
+      </if>
+      <if test="signname != null">
+        SignName = #{signname,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null">
+        Context = #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="templatecode != null">
+        TemplateCode = #{templatecode,jdbcType=VARCHAR},
+      </if>
+      <if test="limitcount != null">
+        LimitCount = #{limitcount,jdbcType=INTEGER},
+      </if>
+      <if test="limittime != null">
+        LimitTime = #{limittime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysSmsTemplate">
+    <!--@mbg.generated-->
+    update SysSmsTemplate
+    set TemplateName = #{templatename,jdbcType=VARCHAR},
+      SignName = #{signname,jdbcType=VARCHAR},
+      Context = #{context,jdbcType=VARCHAR},
+      TemplateCode = #{templatecode,jdbcType=VARCHAR},
+      LimitCount = #{limitcount,jdbcType=INTEGER},
+      LimitTime = #{limittime,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

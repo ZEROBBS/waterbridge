@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.XIFUserMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.XIFUser">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="User_Id" jdbcType="INTEGER" property="userId" />
+    <result column="Coin" jdbcType="VARCHAR" property="coin" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Father" jdbcType="INTEGER" property="father" />
+    <result column="FatherMobile" jdbcType="VARCHAR" property="fathermobile" />
+    <result column="SysFlag" jdbcType="VARCHAR" property="sysflag" />
+    <result column="SysDateTime" jdbcType="VARCHAR" property="sysdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, User_Id, Coin, Mobile, UserName, Address, Father, FatherMobile, SysFlag, SysDateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from XIFUser
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from XIFUser
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.XIFUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into XIFUser (User_Id, Coin, Mobile, 
+      UserName, Address, Father, 
+      FatherMobile, SysFlag, SysDateTime
+      )
+    values (#{userId,jdbcType=INTEGER}, #{coin,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{father,jdbcType=INTEGER}, 
+      #{fathermobile,jdbcType=VARCHAR}, #{sysflag,jdbcType=VARCHAR}, #{sysdatetime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.XIFUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into XIFUser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        User_Id,
+      </if>
+      <if test="coin != null">
+        Coin,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="father != null">
+        Father,
+      </if>
+      <if test="fathermobile != null">
+        FatherMobile,
+      </if>
+      <if test="sysflag != null">
+        SysFlag,
+      </if>
+      <if test="sysdatetime != null">
+        SysDateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="coin != null">
+        #{coin,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="father != null">
+        #{father,jdbcType=INTEGER},
+      </if>
+      <if test="fathermobile != null">
+        #{fathermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sysflag != null">
+        #{sysflag,jdbcType=VARCHAR},
+      </if>
+      <if test="sysdatetime != null">
+        #{sysdatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.XIFUser">
+    <!--@mbg.generated-->
+    update XIFUser
+    <set>
+      <if test="userId != null">
+        User_Id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="coin != null">
+        Coin = #{coin,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        Mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="father != null">
+        Father = #{father,jdbcType=INTEGER},
+      </if>
+      <if test="fathermobile != null">
+        FatherMobile = #{fathermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sysflag != null">
+        SysFlag = #{sysflag,jdbcType=VARCHAR},
+      </if>
+      <if test="sysdatetime != null">
+        SysDateTime = #{sysdatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.XIFUser">
+    <!--@mbg.generated-->
+    update XIFUser
+    set User_Id = #{userId,jdbcType=INTEGER},
+      Coin = #{coin,jdbcType=VARCHAR},
+      Mobile = #{mobile,jdbcType=VARCHAR},
+      UserName = #{username,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Father = #{father,jdbcType=INTEGER},
+      FatherMobile = #{fathermobile,jdbcType=VARCHAR},
+      SysFlag = #{sysflag,jdbcType=VARCHAR},
+      SysDateTime = #{sysdatetime,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysMarketMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysMarket">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="CnTitle" jdbcType="VARCHAR" property="cntitle" />
+    <result column="EnTitle" jdbcType="VARCHAR" property="entitle" />
+    <result column="CnLinkUrl" jdbcType="VARCHAR" property="cnlinkurl" />
+    <result column="EnLinkUrl" jdbcType="VARCHAR" property="enlinkurl" />
+    <result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, CnTitle, EnTitle, CnLinkUrl, EnLinkUrl, CreateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysMarket
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysMarket
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysMarket">
+    <!--@mbg.generated-->
+    insert into SysMarket (Id, CnTitle, EnTitle, 
+      CnLinkUrl, EnLinkUrl, CreateTime
+      )
+    values (#{id,jdbcType=VARCHAR}, #{cntitle,jdbcType=VARCHAR}, #{entitle,jdbcType=VARCHAR}, 
+      #{cnlinkurl,jdbcType=VARCHAR}, #{enlinkurl,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysMarket">
+    <!--@mbg.generated-->
+    insert into SysMarket
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="cntitle != null">
+        CnTitle,
+      </if>
+      <if test="entitle != null">
+        EnTitle,
+      </if>
+      <if test="cnlinkurl != null">
+        CnLinkUrl,
+      </if>
+      <if test="enlinkurl != null">
+        EnLinkUrl,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cntitle != null">
+        #{cntitle,jdbcType=VARCHAR},
+      </if>
+      <if test="entitle != null">
+        #{entitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnlinkurl != null">
+        #{cnlinkurl,jdbcType=VARCHAR},
+      </if>
+      <if test="enlinkurl != null">
+        #{enlinkurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysMarket">
+    <!--@mbg.generated-->
+    update SysMarket
+    <set>
+      <if test="cntitle != null">
+        CnTitle = #{cntitle,jdbcType=VARCHAR},
+      </if>
+      <if test="entitle != null">
+        EnTitle = #{entitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnlinkurl != null">
+        CnLinkUrl = #{cnlinkurl,jdbcType=VARCHAR},
+      </if>
+      <if test="enlinkurl != null">
+        EnLinkUrl = #{enlinkurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysMarket">
+    <!--@mbg.generated-->
+    update SysMarket
+    set CnTitle = #{cntitle,jdbcType=VARCHAR},
+      EnTitle = #{entitle,jdbcType=VARCHAR},
+      CnLinkUrl = #{cnlinkurl,jdbcType=VARCHAR},
+      EnLinkUrl = #{enlinkurl,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

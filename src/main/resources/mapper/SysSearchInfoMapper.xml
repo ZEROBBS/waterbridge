@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysSearchInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysSearchInfo">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="UserSn" jdbcType="VARCHAR" property="usersn" />
+    <result column="SearchKey" jdbcType="VARCHAR" property="searchkey" />
+    <result column="SearchCount" jdbcType="BIGINT" property="searchcount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, UserSn, SearchKey, SearchCount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysSearchInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysSearchInfo
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysSearchInfo">
+    <!--@mbg.generated-->
+    insert into SysSearchInfo (Id, UserSn, SearchKey, 
+      SearchCount)
+    values (#{id,jdbcType=VARCHAR}, #{usersn,jdbcType=VARCHAR}, #{searchkey,jdbcType=VARCHAR}, 
+      #{searchcount,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysSearchInfo">
+    <!--@mbg.generated-->
+    insert into SysSearchInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="usersn != null">
+        UserSn,
+      </if>
+      <if test="searchkey != null">
+        SearchKey,
+      </if>
+      <if test="searchcount != null">
+        SearchCount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="usersn != null">
+        #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="searchkey != null">
+        #{searchkey,jdbcType=VARCHAR},
+      </if>
+      <if test="searchcount != null">
+        #{searchcount,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysSearchInfo">
+    <!--@mbg.generated-->
+    update SysSearchInfo
+    <set>
+      <if test="usersn != null">
+        UserSn = #{usersn,jdbcType=VARCHAR},
+      </if>
+      <if test="searchkey != null">
+        SearchKey = #{searchkey,jdbcType=VARCHAR},
+      </if>
+      <if test="searchcount != null">
+        SearchCount = #{searchcount,jdbcType=BIGINT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysSearchInfo">
+    <!--@mbg.generated-->
+    update SysSearchInfo
+    set UserSn = #{usersn,jdbcType=VARCHAR},
+      SearchKey = #{searchkey,jdbcType=VARCHAR},
+      SearchCount = #{searchcount,jdbcType=BIGINT}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

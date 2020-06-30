@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtAgentconfigMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtAgentconfig">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cn_name" jdbcType="VARCHAR" property="cnName" />
+    <result column="en_name" jdbcType="VARCHAR" property="enName" />
+    <result column="week_consume" jdbcType="DECIMAL" property="weekConsume" />
+    <result column="position_begin" jdbcType="DECIMAL" property="positionBegin" />
+    <result column="position_end" jdbcType="DECIMAL" property="positionEnd" />
+    <result column="award" jdbcType="DECIMAL" property="award" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, cn_name, en_name, week_consume, position_begin, position_end, award
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_agentconfig
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_agentconfig
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.LtAgentconfig">
+    <!--@mbg.generated-->
+    insert into lt_agentconfig (id, cn_name, en_name, 
+      week_consume, position_begin, position_end, 
+      award)
+    values (#{id,jdbcType=INTEGER}, #{cnName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{weekConsume,jdbcType=DECIMAL}, #{positionBegin,jdbcType=DECIMAL}, #{positionEnd,jdbcType=DECIMAL}, 
+      #{award,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.LtAgentconfig">
+    <!--@mbg.generated-->
+    insert into lt_agentconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cnName != null">
+        cn_name,
+      </if>
+      <if test="enName != null">
+        en_name,
+      </if>
+      <if test="weekConsume != null">
+        week_consume,
+      </if>
+      <if test="positionBegin != null">
+        position_begin,
+      </if>
+      <if test="positionEnd != null">
+        position_end,
+      </if>
+      <if test="award != null">
+        award,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="weekConsume != null">
+        #{weekConsume,jdbcType=DECIMAL},
+      </if>
+      <if test="positionBegin != null">
+        #{positionBegin,jdbcType=DECIMAL},
+      </if>
+      <if test="positionEnd != null">
+        #{positionEnd,jdbcType=DECIMAL},
+      </if>
+      <if test="award != null">
+        #{award,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtAgentconfig">
+    <!--@mbg.generated-->
+    update lt_agentconfig
+    <set>
+      <if test="cnName != null">
+        cn_name = #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        en_name = #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="weekConsume != null">
+        week_consume = #{weekConsume,jdbcType=DECIMAL},
+      </if>
+      <if test="positionBegin != null">
+        position_begin = #{positionBegin,jdbcType=DECIMAL},
+      </if>
+      <if test="positionEnd != null">
+        position_end = #{positionEnd,jdbcType=DECIMAL},
+      </if>
+      <if test="award != null">
+        award = #{award,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtAgentconfig">
+    <!--@mbg.generated-->
+    update lt_agentconfig
+    set cn_name = #{cnName,jdbcType=VARCHAR},
+      en_name = #{enName,jdbcType=VARCHAR},
+      week_consume = #{weekConsume,jdbcType=DECIMAL},
+      position_begin = #{positionBegin,jdbcType=DECIMAL},
+      position_end = #{positionEnd,jdbcType=DECIMAL},
+      award = #{award,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

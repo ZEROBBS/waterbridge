@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtUserbalanceMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtUserbalance">
+    <!--@mbg.generated-->
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="usn" jdbcType="VARCHAR" property="usn" />
+    <result column="asset" jdbcType="INTEGER" property="asset" />
+    <result column="balance" jdbcType="DECIMAL" property="balance" />
+    <result column="frozen" jdbcType="DECIMAL" property="frozen" />
+    <result column="balance_usd" jdbcType="DECIMAL" property="balanceUsd" />
+    <result column="frozen_usd" jdbcType="DECIMAL" property="frozenUsd" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `uid`, usn, asset, balance, frozen, balance_usd, frozen_usd, address
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_userbalance
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_userbalance
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.LtUserbalance">
+    <!--@mbg.generated-->
+    insert into lt_userbalance (`uid`, usn, asset, 
+      balance, frozen, balance_usd, 
+      frozen_usd, address)
+    values (#{uid,jdbcType=INTEGER}, #{usn,jdbcType=VARCHAR}, #{asset,jdbcType=INTEGER}, 
+      #{balance,jdbcType=DECIMAL}, #{frozen,jdbcType=DECIMAL}, #{balanceUsd,jdbcType=DECIMAL}, 
+      #{frozenUsd,jdbcType=DECIMAL}, #{address,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.LtUserbalance">
+    <!--@mbg.generated-->
+    insert into lt_userbalance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="usn != null">
+        usn,
+      </if>
+      <if test="asset != null">
+        asset,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="frozen != null">
+        frozen,
+      </if>
+      <if test="balanceUsd != null">
+        balance_usd,
+      </if>
+      <if test="frozenUsd != null">
+        frozen_usd,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="usn != null">
+        #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="asset != null">
+        #{asset,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="frozen != null">
+        #{frozen,jdbcType=DECIMAL},
+      </if>
+      <if test="balanceUsd != null">
+        #{balanceUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenUsd != null">
+        #{frozenUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtUserbalance">
+    <!--@mbg.generated-->
+    update lt_userbalance
+    <set>
+      <if test="usn != null">
+        usn = #{usn,jdbcType=VARCHAR},
+      </if>
+      <if test="asset != null">
+        asset = #{asset,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="frozen != null">
+        frozen = #{frozen,jdbcType=DECIMAL},
+      </if>
+      <if test="balanceUsd != null">
+        balance_usd = #{balanceUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenUsd != null">
+        frozen_usd = #{frozenUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtUserbalance">
+    <!--@mbg.generated-->
+    update lt_userbalance
+    set usn = #{usn,jdbcType=VARCHAR},
+      asset = #{asset,jdbcType=INTEGER},
+      balance = #{balance,jdbcType=DECIMAL},
+      frozen = #{frozen,jdbcType=DECIMAL},
+      balance_usd = #{balanceUsd,jdbcType=DECIMAL},
+      frozen_usd = #{frozenUsd,jdbcType=DECIMAL},
+      address = #{address,jdbcType=VARCHAR}
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

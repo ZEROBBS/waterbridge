@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtAssetMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtAsset">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="asset_name" jdbcType="VARCHAR" property="assetName" />
+    <result column="asset_type" jdbcType="INTEGER" property="assetType" />
+    <result column="total_flag" jdbcType="INTEGER" property="totalFlag" />
+    <result column="e_flag" jdbcType="INTEGER" property="eFlag" />
+    <result column="withdraw_min" jdbcType="DECIMAL" property="withdrawMin" />
+    <result column="withdraw_fee" jdbcType="DECIMAL" property="withdrawFee" />
+    <result column="exchange_min" jdbcType="DECIMAL" property="exchangeMin" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, asset_name, asset_type, total_flag, e_flag, withdraw_min, withdraw_fee, exchange_min, 
+    del, icon
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_asset
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from lt_asset
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LtAsset" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into lt_asset (asset_name, asset_type, total_flag, 
+      e_flag, withdraw_min, withdraw_fee, 
+      exchange_min, del, icon
+      )
+    values (#{assetName,jdbcType=VARCHAR}, #{assetType,jdbcType=INTEGER}, #{totalFlag,jdbcType=INTEGER}, 
+      #{eFlag,jdbcType=INTEGER}, #{withdrawMin,jdbcType=DECIMAL}, #{withdrawFee,jdbcType=DECIMAL}, 
+      #{exchangeMin,jdbcType=DECIMAL}, #{del,jdbcType=INTEGER}, #{icon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.wswl.waterbridge.dto.LtAsset" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into lt_asset
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="assetName != null">
+        asset_name,
+      </if>
+      <if test="assetType != null">
+        asset_type,
+      </if>
+      <if test="totalFlag != null">
+        total_flag,
+      </if>
+      <if test="eFlag != null">
+        e_flag,
+      </if>
+      <if test="withdrawMin != null">
+        withdraw_min,
+      </if>
+      <if test="withdrawFee != null">
+        withdraw_fee,
+      </if>
+      <if test="exchangeMin != null">
+        exchange_min,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="assetName != null">
+        #{assetName,jdbcType=VARCHAR},
+      </if>
+      <if test="assetType != null">
+        #{assetType,jdbcType=INTEGER},
+      </if>
+      <if test="totalFlag != null">
+        #{totalFlag,jdbcType=INTEGER},
+      </if>
+      <if test="eFlag != null">
+        #{eFlag,jdbcType=INTEGER},
+      </if>
+      <if test="withdrawMin != null">
+        #{withdrawMin,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawFee != null">
+        #{withdrawFee,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangeMin != null">
+        #{exchangeMin,jdbcType=DECIMAL},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtAsset">
+    <!--@mbg.generated-->
+    update lt_asset
+    <set>
+      <if test="assetName != null">
+        asset_name = #{assetName,jdbcType=VARCHAR},
+      </if>
+      <if test="assetType != null">
+        asset_type = #{assetType,jdbcType=INTEGER},
+      </if>
+      <if test="totalFlag != null">
+        total_flag = #{totalFlag,jdbcType=INTEGER},
+      </if>
+      <if test="eFlag != null">
+        e_flag = #{eFlag,jdbcType=INTEGER},
+      </if>
+      <if test="withdrawMin != null">
+        withdraw_min = #{withdrawMin,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawFee != null">
+        withdraw_fee = #{withdrawFee,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangeMin != null">
+        exchange_min = #{exchangeMin,jdbcType=DECIMAL},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtAsset">
+    <!--@mbg.generated-->
+    update lt_asset
+    set asset_name = #{assetName,jdbcType=VARCHAR},
+      asset_type = #{assetType,jdbcType=INTEGER},
+      total_flag = #{totalFlag,jdbcType=INTEGER},
+      e_flag = #{eFlag,jdbcType=INTEGER},
+      withdraw_min = #{withdrawMin,jdbcType=DECIMAL},
+      withdraw_fee = #{withdrawFee,jdbcType=DECIMAL},
+      exchange_min = #{exchangeMin,jdbcType=DECIMAL},
+      del = #{del,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

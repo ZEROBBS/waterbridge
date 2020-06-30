@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.SysRole">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="EnCode" jdbcType="VARCHAR" property="encode" />
+    <result column="FullName" jdbcType="VARCHAR" property="fullname" />
+    <result column="DataStatus" jdbcType="INTEGER" property="datastatus" />
+    <result column="Createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="CreateUserId" jdbcType="VARCHAR" property="createuserid" />
+    <result column="Permissions" jdbcType="VARCHAR" property="permissions" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, EnCode, FullName, DataStatus, Createtime, CreateUserId, Permissions
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SysRole
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SysRole
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.SysRole">
+    <!--@mbg.generated-->
+    insert into SysRole (Id, EnCode, FullName, 
+      DataStatus, Createtime, CreateUserId, 
+      Permissions)
+    values (#{id,jdbcType=VARCHAR}, #{encode,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR}, 
+      #{datastatus,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{createuserid,jdbcType=VARCHAR}, 
+      #{permissions,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.SysRole">
+    <!--@mbg.generated-->
+    insert into SysRole
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="encode != null">
+        EnCode,
+      </if>
+      <if test="fullname != null">
+        FullName,
+      </if>
+      <if test="datastatus != null">
+        DataStatus,
+      </if>
+      <if test="createtime != null">
+        Createtime,
+      </if>
+      <if test="createuserid != null">
+        CreateUserId,
+      </if>
+      <if test="permissions != null">
+        Permissions,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="encode != null">
+        #{encode,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null">
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="datastatus != null">
+        #{datastatus,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuserid != null">
+        #{createuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="permissions != null">
+        #{permissions,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.SysRole">
+    <!--@mbg.generated-->
+    update SysRole
+    <set>
+      <if test="encode != null">
+        EnCode = #{encode,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null">
+        FullName = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="datastatus != null">
+        DataStatus = #{datastatus,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        Createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuserid != null">
+        CreateUserId = #{createuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="permissions != null">
+        Permissions = #{permissions,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.SysRole">
+    <!--@mbg.generated-->
+    update SysRole
+    set EnCode = #{encode,jdbcType=VARCHAR},
+      FullName = #{fullname,jdbcType=VARCHAR},
+      DataStatus = #{datastatus,jdbcType=INTEGER},
+      Createtime = #{createtime,jdbcType=TIMESTAMP},
+      CreateUserId = #{createuserid,jdbcType=VARCHAR},
+      Permissions = #{permissions,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

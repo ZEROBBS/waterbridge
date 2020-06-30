@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wswl.waterbridge.mapper.LtSettleMapper">
+  <resultMap id="BaseResultMap" type="com.wswl.waterbridge.dto.LtSettle">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="batch" jdbcType="VARCHAR" property="batch" />
+    <result column="total_award" jdbcType="DECIMAL" property="totalAward" />
+    <result column="total_award_usd" jdbcType="DECIMAL" property="totalAwardUsd" />
+    <result column="issue_price" jdbcType="DECIMAL" property="issuePrice" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="begin" jdbcType="BIGINT" property="begin" />
+    <result column="end" jdbcType="BIGINT" property="end" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, batch, total_award, total_award_usd, issue_price, flag, `begin`, `end`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from lt_settle
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from lt_settle
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wswl.waterbridge.dto.LtSettle">
+    <!--@mbg.generated-->
+    insert into lt_settle (id, batch, total_award, 
+      total_award_usd, issue_price, flag, 
+      `begin`, `end`)
+    values (#{id,jdbcType=BIGINT}, #{batch,jdbcType=VARCHAR}, #{totalAward,jdbcType=DECIMAL}, 
+      #{totalAwardUsd,jdbcType=DECIMAL}, #{issuePrice,jdbcType=DECIMAL}, #{flag,jdbcType=INTEGER}, 
+      #{begin,jdbcType=BIGINT}, #{end,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wswl.waterbridge.dto.LtSettle">
+    <!--@mbg.generated-->
+    insert into lt_settle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="batch != null">
+        batch,
+      </if>
+      <if test="totalAward != null">
+        total_award,
+      </if>
+      <if test="totalAwardUsd != null">
+        total_award_usd,
+      </if>
+      <if test="issuePrice != null">
+        issue_price,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="begin != null">
+        `begin`,
+      </if>
+      <if test="end != null">
+        `end`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAward != null">
+        #{totalAward,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAwardUsd != null">
+        #{totalAwardUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="issuePrice != null">
+        #{issuePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="begin != null">
+        #{begin,jdbcType=BIGINT},
+      </if>
+      <if test="end != null">
+        #{end,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wswl.waterbridge.dto.LtSettle">
+    <!--@mbg.generated-->
+    update lt_settle
+    <set>
+      <if test="batch != null">
+        batch = #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAward != null">
+        total_award = #{totalAward,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAwardUsd != null">
+        total_award_usd = #{totalAwardUsd,jdbcType=DECIMAL},
+      </if>
+      <if test="issuePrice != null">
+        issue_price = #{issuePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="begin != null">
+        `begin` = #{begin,jdbcType=BIGINT},
+      </if>
+      <if test="end != null">
+        `end` = #{end,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wswl.waterbridge.dto.LtSettle">
+    <!--@mbg.generated-->
+    update lt_settle
+    set batch = #{batch,jdbcType=VARCHAR},
+      total_award = #{totalAward,jdbcType=DECIMAL},
+      total_award_usd = #{totalAwardUsd,jdbcType=DECIMAL},
+      issue_price = #{issuePrice,jdbcType=DECIMAL},
+      flag = #{flag,jdbcType=INTEGER},
+      `begin` = #{begin,jdbcType=BIGINT},
+      `end` = #{end,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
